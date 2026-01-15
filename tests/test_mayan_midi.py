@@ -1,7 +1,10 @@
+import tempfile
 import unittest
+from pathlib import Path
 
 from mayan_midi import (
     LOCATION_CODES,
+    InventoryRegistry,
     MayanMidiControlBoard,
     MayanMidiMapping,
     PROTOCOL_COLORS,
@@ -84,6 +87,46 @@ class TestMayanMidi(unittest.TestCase):
                 }
             ],
         )
+
+
+class TestMayanMidiInventory(unittest.TestCase):
+    def test_inventory_registry_connects_known_device(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            csv_path = Path(tmp_dir) / "inventory.csv"
+            csv_path.write_text("device_name\nDeckA\n", encoding="utf-8")
+
+            inventory = InventoryRegistry.from_csv(csv_path)
+            inventory.connect_device("DeckA")
+
+            self.assertIn("DeckA", inventory.connected)
+
+    def test_inventory_registry_auto_registers_missing_device(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            csv_path = Path(tmp_dir) / "inventory.csv"
+            csv_path.write_text("device_name\nDeckB\n", encoding="utf-8")
+
+            inventory = InventoryRegistry.from_csv(csv_path)
+            inventory.connect_device("DeckC", auto_register=True)
+
+            self.assertIn("DeckC", inventory.inventory)
+            self.assertIn("DeckC", inventory.connected)
+
+    def test_control_board_requires_connected_controller(self):
+        inventory = InventoryRegistry(["MainDeck"])
+        board = MayanMidiControlBoard(inventory=inventory)
+        mapping = MayanMidiMapping(
+            index=4,
+            location="right",
+            controller="MainDeck",
+            protocol="midi",
+        )
+
+        with self.assertRaises(ValueError):
+            board.add_mapping(mapping)
+
+        inventory.connect_device("MainDeck")
+        board.add_mapping(mapping)
+        self.assertEqual(len(board.mappings), 1)
 
 
 if __name__ == "__main__":

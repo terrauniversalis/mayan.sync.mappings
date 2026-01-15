@@ -12,6 +12,31 @@ El módulo `mayan_midi.py` define la nomenclatura **Mayan MIDI 2**:
 - Las asignaciones son únicas; si se marca como uso dual se añade una `D` al final de la clave.
 - Cada asignación puede llevar el nombre del controlador, el protocolo, el color asociado y una secuencia opcional de teclas para disparos híbridos (por ejemplo `win+shift+a`).
 
+### Inventario interactivo y en vivo
+
+El tablero Mayan MIDI 2 puede validar que el controlador esté en inventario antes de mapearlo.
+Para ello se usa un CSV exportado de la lista de SharePoint (por ejemplo
+`terrauniversalis_audio_equipment`) y se marca como conectado solo aquello que esté en la lista.
+Si un dispositivo no existe, se puede dar de alta y luego mapear.
+
+```python
+from pathlib import Path
+from mayan_midi import InventoryRegistry, MayanMidiControlBoard, MayanMidiMapping
+
+inventory = InventoryRegistry.from_csv(Path("terrauniversalis_audio_equipment.csv"))
+inventory.connect_device("MainDeck", auto_register=True)
+
+board = MayanMidiControlBoard(inventory=inventory)
+board.add_mapping(
+    MayanMidiMapping(
+        index=0,
+        location="center",
+        controller="MainDeck",
+        protocol="midi",
+    )
+)
+```
+
 Ejemplo rápido:
 
 ```python
