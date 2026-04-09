@@ -1,0 +1,305 @@
+{
+  "::::terra::sls::::": {
+    "system": "::::fifa::2026::::",
+    "type": "event_system",
+    "status": "operational",
+    "version": "1.1.0",
+    "last_update": "2026-04-09",
+    "scope": "conceptual_operational_blueprint",
+    "core_entities": {
+      "sede_id": "identificador transversal de sede",
+      "evento_id": "identificador transversal de evento",
+      "incidente_id": "identificador transversal de incidente",
+      "responsable_id": "identificador transversal de responsable",
+      "proveedor_id": "identificador transversal de proveedor",
+      "contrato_id": "identificador transversal de contrato",
+      "ticket_id": "identificador transversal de ticket"
+    },
+    "core_modules": {
+      "infraestructura::command_center": {
+        "description": "centro de control operativo en tiempo real",
+        "components": [
+          "dashboard_global",
+          "live_alerts",
+          "system_status",
+          "data_streams",
+          "incident_monitor"
+        ],
+        "tables": [
+          "cc_events",
+          "cc_alerts",
+          "cc_logs",
+          "cc_status"
+        ],
+        "fields": [
+          "#Timestamp",
+          "#Evento",
+          "#Tipo",
+          "#NivelCriticidad",
+          "#Estado",
+          "#Fuente",
+          "#ResponsableNombre",
+          "#SedeID",
+          "#EventoID",
+          "#IncidenteID",
+          "#ResponsableID"
+          "#Responsable",
+          "#SedeID",
+          "#EventoID",
+          "#IncidenteID"
+        ]
+      },
+      "infraestructura::logistica": {
+        "description": "movilidad, rutas, distribución",
+        "tables": [
+          "rutas",
+          "vehiculos",
+          "entregas",
+          "centros_distribucion"
+        ],
+        "fields": [
+          "#RutaID",
+          "#Origen",
+          "#Destino",
+          "#Estado",
+          "#TiempoEstimado",
+          "#ProveedorNombre",
+          "#Proveedor",
+          "#Fecha",
+          "#ProveedorID",
+          "#SedeID",
+          "#EventoID"
+        ]
+      },
+      "infraestructura::seguridad": {
+        "description": "control de riesgos, seguridad física y eventos",
+        "tables": [
+          "incidentes",
+          "riesgos",
+          "protocolos",
+          "alertas_seguridad"
+        ],
+        "fields": [
+          "#IncidenteID",
+          "#Tipo",
+          "#Ubicacion",
+          "#NivelRiesgo",
+          "#Estado",
+          "#Fecha",
+          "#AccionTomada",
+          "#SedeID",
+          "#EventoID",
+          "#ResponsableID"
+        ]
+      },
+      "infraestructura::riesgos": {
+        "description": "evaluación y matriz de riesgos",
+        "tables": [
+          "matriz_riesgo",
+          "impactos",
+          "probabilidades"
+        ],
+        "fields": [
+          "#RiesgoID",
+          "#Descripcion",
+          "#Probabilidad",
+          "#Impacto",
+          "#Nivel",
+          "#Mitigacion",
+          "#SedeID",
+          "#EventoID",
+          "#ResponsableID"
+        ]
+      },
+      "infraestructura::analytics": {
+        "description": "KPIs, monitoreo y predicción",
+        "tables": [
+          "kpis",
+          "metricas",
+          "predicciones"
+        ],
+        "fields": [
+          "#Indicador",
+          "#Valor",
+          "#Fecha",
+          "#Tendencia",
+          "#Fuente",
+          "#SedeID",
+          "#EventoID"
+        ]
+      },
+      "infraestructura::it_systems": {
+        "description": "infraestructura tecnológica y sistemas",
+        "tables": [
+          "sistemas",
+          "integraciones",
+          "incidentes_it"
+        ],
+        "fields": [
+          "#Sistema",
+          "#Estado",
+          "#Integracion",
+          "#Uptime",
+          "#IncidenteResumen",
+          "#Incidente",
+          "#Fecha",
+          "#IncidenteID",
+          "#SedeID",
+          "#EventoID",
+          "#ResponsableID"
+        ]
+      },
+      "finance::control": {
+        "description": "control presupuestal y financiero",
+        "tables": [
+          "presupuesto",
+          "contratos",
+          "pagos",
+          "ordenes_compra"
+        ],
+        "fields": [
+          "#Partida",
+          "#Monto",
+          "#ProveedorNombre",
+          "#Proveedor",
+          "#Fecha",
+          "#Estatus",
+          "#CFDI",
+          "#ContratoID",
+          "#ProveedorID",
+          "#SedeID",
+          "#EventoID",
+          "#ResponsableID"
+        ]
+      },
+      "procurement": {
+        "description": "compras, licitaciones y proveedores",
+        "tables": [
+          "licitaciones",
+          "proveedores",
+          "adjudicaciones"
+        ],
+        "fields": [
+          "#ProcesoID",
+          "#ProveedorNombre",
+          "#Proveedor",
+          "#Monto",
+          "#Estado",
+          "#Fecha",
+          "#Tipo",
+          "#ProveedorID",
+          "#SedeID",
+          "#EventoID",
+          "#ContratoID"
+        ]
+      },
+      "ticketing": {
+        "description": "gestión de boletos y accesos",
+        "tables": [
+          "tickets",
+          "ventas",
+          "accesos",
+          "validaciones"
+        ],
+        "fields": [
+          "#TicketID",
+          "#Usuario",
+          "#EventoNombre",
+          "#Evento",
+          "#Estado",
+          "#Precio",
+          "#FechaCompra",
+          "#EventoID",
+          "#SedeID"
+        ]
+      },
+      "media::comunicacion": {
+        "description": "comunicación, prensa y contenido",
+        "tables": [
+          "comunicados",
+          "campañas",
+          "medios",
+          "publicaciones"
+        ],
+        "fields": [
+          "#Mensaje",
+          "#Canal",
+          "#Fecha",
+          "#Audiencia",
+          "#Impacto",
+          "#EventoID",
+          "#SedeID"
+        ]
+      },
+      "team::control_de_gestion": {
+        "description": "seguimiento operativo y KPIs internos",
+        "tables": [
+          "tareas",
+          "responsables",
+          "avances",
+          "indicadores_equipo"
+        ],
+        "fields": [
+          "#Tarea",
+          "#ResponsableNombre",
+          "#Responsable",
+          "#Estado",
+          "#Avance",
+          "#FechaInicio",
+          "#FechaFin",
+          "#ResponsableID",
+          "#EventoID",
+          "#SedeID"
+        ]
+      },
+      "contactos::operativos": {
+        "description": "directorio de contactos clave",
+        "tables": [
+          "contactos",
+          "roles",
+          "organizaciones"
+        ],
+        "fields": [
+          "#ResponsableID",
+          "#Nombre",
+          "#Rol",
+          "#Organizacion",
+          "#Telefono",
+          "#Email",
+          "#Ubicacion"
+        ]
+      }
+    },
+    "governance": {
+      "rules": [
+        "todo evento debe tener responsable asignado",
+        "todo gasto debe tener CFDI y contrato",
+        "todo incidente debe registrarse en tiempo real",
+        "toda alerta crítica activa protocolo automático",
+        "toda data debe estar trazable (timestamp + fuente)"
+      ]
+    },
+    "integration": {
+      "sharepoint": {
+        "site": "https://terrauniversalis.sharepoint.com/",
+        "structure": "listas_por_modulo"
+      },
+      "power_automate": {
+        "flows": [
+          "alertas_en_tiempo_real",
+          "registro_automatico_incidentes",
+          "control_presupuestal_auto",
+          "sincronizacion_dashboard"
+        ]
+      },
+      "power_bi": {
+        "dashboards": [
+          "command_center_global",
+          "riesgos",
+          "finanzas",
+          "logistica"
+        ]
+      }
+    }
+  }
+}

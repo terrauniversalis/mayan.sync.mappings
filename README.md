@@ -33,3 +33,7 @@ Ejecuta las pruebas con:
 python -m unittest discover
 ```
 
+## 📄 Documento de referencia
+
+- Guía conceptual y operativa de `::::fifa::2026::::`: `docs/fifa_2026_base_conceptual.md`
+- Blueprint técnico en JSON: `schemas/fifa_2026.blueprint.json`
