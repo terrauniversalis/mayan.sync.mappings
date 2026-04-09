@@ -35,4 +35,4 @@ python -m unittest discover
 
 ## 📄 Documento de referencia
 
-- Base conceptual de `::::fifa::2026::::`: `docs/fifa_2026_base_conceptual.md`
+- Blueprint canónico y guía operativa de `::::fifa::2026::::`: `docs/fifa_2026_base_conceptual.md`
