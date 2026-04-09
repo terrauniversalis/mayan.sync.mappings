@@ -43,6 +43,10 @@
           "#EventoID",
           "#IncidenteID",
           "#ResponsableID"
+          "#Responsable",
+          "#SedeID",
+          "#EventoID",
+          "#IncidenteID"
         ]
       },
       "infraestructura::logistica": {
@@ -60,6 +64,7 @@
           "#Estado",
           "#TiempoEstimado",
           "#ProveedorNombre",
+          "#Proveedor",
           "#Fecha",
           "#ProveedorID",
           "#SedeID",
@@ -136,6 +141,7 @@
           "#Integracion",
           "#Uptime",
           "#IncidenteResumen",
+          "#Incidente",
           "#Fecha",
           "#IncidenteID",
           "#SedeID",
@@ -155,6 +161,7 @@
           "#Partida",
           "#Monto",
           "#ProveedorNombre",
+          "#Proveedor",
           "#Fecha",
           "#Estatus",
           "#CFDI",
@@ -175,6 +182,7 @@
         "fields": [
           "#ProcesoID",
           "#ProveedorNombre",
+          "#Proveedor",
           "#Monto",
           "#Estado",
           "#Fecha",
@@ -197,6 +205,7 @@
           "#TicketID",
           "#Usuario",
           "#EventoNombre",
+          "#Evento",
           "#Estado",
           "#Precio",
           "#FechaCompra",
@@ -233,6 +242,7 @@
         "fields": [
           "#Tarea",
           "#ResponsableNombre",
+          "#Responsable",
           "#Estado",
           "#Avance",
           "#FechaInicio",
