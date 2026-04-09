@@ -82,6 +82,7 @@ El blueprint técnico consumible del sistema vive en:
 
 Este documento conserva la explicación conceptual, operativa y de gobernanza.
 El archivo JSON separado define la estructura base para implementación técnica.
+El modelo lógico permite coexistencia entre campos legibles (por ejemplo, `...Nombre` o `...Resumen`) y llaves técnicas (`...ID`) para trazabilidad e integración.
 
 ## 8) Checklist de salida a operación
 

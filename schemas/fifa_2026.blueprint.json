@@ -38,6 +38,11 @@
           "#NivelCriticidad",
           "#Estado",
           "#Fuente",
+          "#ResponsableNombre",
+          "#SedeID",
+          "#EventoID",
+          "#IncidenteID",
+          "#ResponsableID"
           "#Responsable",
           "#SedeID",
           "#EventoID",
@@ -58,6 +63,7 @@
           "#Destino",
           "#Estado",
           "#TiempoEstimado",
+          "#ProveedorNombre",
           "#Proveedor",
           "#Fecha",
           "#ProveedorID",
@@ -134,6 +140,7 @@
           "#Estado",
           "#Integracion",
           "#Uptime",
+          "#IncidenteResumen",
           "#Incidente",
           "#Fecha",
           "#IncidenteID",
@@ -153,6 +160,7 @@
         "fields": [
           "#Partida",
           "#Monto",
+          "#ProveedorNombre",
           "#Proveedor",
           "#Fecha",
           "#Estatus",
@@ -173,6 +181,7 @@
         ],
         "fields": [
           "#ProcesoID",
+          "#ProveedorNombre",
           "#Proveedor",
           "#Monto",
           "#Estado",
@@ -195,6 +204,7 @@
         "fields": [
           "#TicketID",
           "#Usuario",
+          "#EventoNombre",
           "#Evento",
           "#Estado",
           "#Precio",
@@ -231,6 +241,7 @@
         ],
         "fields": [
           "#Tarea",
+          "#ResponsableNombre",
           "#Responsable",
           "#Estado",
           "#Avance",
